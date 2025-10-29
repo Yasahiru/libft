@@ -46,16 +46,17 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	destt = (char *)dest;
 	if (!dest || !src)
 		return (NULL);
+	if (dest == src || n == 0)
+		return (dest);
 	i = 0;
-	if ((unsigned char *)dest < (const unsigned char *)src + n)
+	if ((dest > src))
 	{
 		while (n != 0)
 		{
-			*((unsigned char *)dest + n - 1)
-				= *((const unsigned char *)src + n - 1);
+			*((char *)dest + n - 1) = *((char *)src + n - 1);
 			n--;
 		}
-		return (dest);
+		return (destt);
 	}
 	while (i < n)
 	{
@@ -64,3 +65,13 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (destt);
 }
+
+// #include <string.h>
+// #include <stdio.h>
+// int main(void)
+// {
+//     char buf1[] = "abcdef";
+//     char buf2[] = "abcdef";
+//     printf("memmove: %s\n", (char *)memmove(buf1, buf1 + 2, 4));
+//     printf("ft_memmove: %s\n", (char *)ft_memmove(buf2, buf2 + 2, 4));
+// }
