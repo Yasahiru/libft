@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hloutman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 00:21:17 by hloutman          #+#    #+#             */
-/*   Updated: 2025/10/19 00:23:03 by hloutman         ###   ########.fr       */
+/*   Created: 2025/10/29 22:41:19 by hloutman          #+#    #+#             */
+/*   Updated: 2025/10/29 22:41:21 by hloutman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
@@ -20,11 +21,11 @@ char	*ft_strchr(const char *s, int c)
 		return (NULL);
 	while (s[i])
 	{
-		if (s[i] == (unsigned char)c)
+		if (s[i] == (char)c)
 			return ((char *)&s[i]);
 		i++;
 	}
-	if (s[i] == '\0')
+	if ((unsigned char)c == '\0')
 		return ((char *)&s[i]);
 	return (NULL);
 }
