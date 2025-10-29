@@ -20,12 +20,14 @@ void	*ft_memset(void *dest, int c, size_t count)
 	i = 0;
 	if (!dest)
 		return (NULL);
+	if (count == 0)
+		return (dest);
 	destt = (unsigned char *)dest;
 	ch = (unsigned char)c;
 	while (i < count)
 	{
-		*destt++ = ch;
+		destt[i] = ch;
 		i++;
 	}
-	return (destt);
+	return (dest);
 }

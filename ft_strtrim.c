@@ -69,16 +69,25 @@ static int	ft_len(const char *start, const char *end)
 	return (i);
 }
 
+char	*ft_null(void)
+{
+	char	*str;
+
+	str = malloc(sizeof(char));
+	str[0] = '\0';
+	return (str);
+}
+
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	char	*start;
-	char	*end;
-	char	*str;
-	int		len;
-	int		i;
-
+	char *(start), *(end), *(str);
+	int (len), (i);
+	if (!s1)
+		return (ft_null());
 	i = 0;
 	start = ft_start(s1, set);
+	if (*start == '\0')
+		return (ft_null());
 	end = ft_end(s1, set);
 	len = ft_len(start, end);
 	str = malloc(sizeof(char) * (len + 1));
@@ -92,14 +101,3 @@ char	*ft_strtrim(const char *s1, const char *set)
 	str[i] = '\0';
 	return ((char *)str);
 }
-/*
-#include <stdio.h>
-int main(){
-	const char*str = "+-+_hamza+laoutmani_+_*-";
-	const char*set = "+*-";
-	//char*start = ft_start(str,set);
-	//char*end = ft_end(str,set);
-	//int res = ft_len(start,end);
-	char*res = ft_strtrim(str,set);
-	printf("%s",res);
-}*/

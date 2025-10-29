@@ -20,7 +20,7 @@ static int	ft_numlen(int i)
 
 static void	ft_fill(char *str, int num, int size)
 {
-	while (num > 10)
+	while (num > 9)
 	{
 		str[size - 1] = (num % 10) + '0';
 		ft_fill(str, num / 10, size - 1);
@@ -74,27 +74,3 @@ char	*ft_itoa(int n)
 	ft_fill(str, n, size);
 	return (str);
 }
-
-//
-// void print_result(const char *func, int passed)
-// {
-//     printf("%-15s: %s\n", func, passed ? "PASS" : "FAIL");
-// }
-
-// int main(){
-// 	char *s1 = ft_itoa(12345);
-//     char *s2 = ft_itoa(-9876);
-//     char *s3 = ft_itoa(0);
-//     // int passed = strcmp(s1, "12345") == 0 &&
-//     //              strcmp(s2, "-9876") == 0 &&
-//     //              strcmp(s3, "0") == 0;
-//     // print_result("ft_itoa", passed);
-// 	printf("12345 %s \n", s1);
-// 	printf("-9876 %s \n", s2);
-// 	printf("0 %s \n", s3);
-//     free(s1);
-//     free(s2);
-//     free(s3);
-
-// }
-// //
