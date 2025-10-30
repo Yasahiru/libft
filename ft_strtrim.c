@@ -69,21 +69,14 @@ static int	ft_len(const char *start, const char *end)
 	return (i);
 }
 
-char	*ft_null(void)
-{
-	char	*str;
-
-	str = malloc(sizeof(char));
-	str[0] = '\0';
-	return (str);
-}
-
 char	*ft_strtrim(const char *s1, const char *set)
 {
 	char *(start), *(end), *(str);
 	int (len), (i);
 	if (!s1)
-		return (ft_null());
+		return (ft_strdup(""));
+	if (!set)
+		return (s1);
 	i = 0;
 	start = ft_start(s1, set);
 	if (*start == '\0')
