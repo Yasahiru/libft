@@ -37,22 +37,20 @@ BONUS_OBJ = $(BONUS_SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
 
-%.o: %.c
+%.o: %.c libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
+	ar -crs $(NAME) $@
 
-# Bonus rule
 bonus: $(BONUS_OBJ)
-	ar rcs $(NAME) $(BONUS_OBJ)
 
-# Clean object files
 clean:
 	rm -f $(OBJ) $(BONUS_OBJ)
 
-# Full clean
 fclean: clean
 	rm -f $(NAME)
 
-# Rebuild
 re: fclean all
+
+.PHONY: all clean bonus fclean re
+

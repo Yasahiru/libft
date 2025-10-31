@@ -31,21 +31,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	return (str);
 }
-
-// char to_upper_even(unsigned int i, char c)
-// {
-//     if (i % 2 == 0)
-//         return toupper(c);
-//     return c;
-// }
-// int main(void)
-// {
-//     char *str = "hello world";
-//     char *new = ft_strmapi(str, to_upper_even);
-
-//     printf("Original: %s\n", str);
-//     printf("Modified: %s\n", new);
-
-//     free(new);
-//     return 0;
-// }

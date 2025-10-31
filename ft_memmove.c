@@ -10,33 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-// [fail]: your memmove does not support the overlap (test 2)
-// [crash]: your memmove does not well with NULL as both parameters and size
-// void	*ft_memmove(void *dest, const void *src, size_t n)
-// {
-// 	size_t				i;
-// 	if (!dest || !src)
-// 		return (NULL);
-// 	i = 0;
-// 	if ((unsigned char *)dest < (const unsigned char *)src + n)
-// 	{
-// 		while (n != 0)
-// 		{
-// 			*((unsigned char *)dest + n - 1)
-// 				= *((const unsigned char *)src + n - 1);
-// 			n--;
-// 		}
-// 	}
-// 	else
-// 	{
-// 		while (i < n)
-// 		{
-// 			*(unsigned char *)dest++ = *(const unsigned char *)src++;
-// 			i++;
-// 		}
-// 	}
-// 	return (dest);
-// }
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -58,20 +31,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		}
 		return (destt);
 	}
-	while (i < n)
+	while (dest && src && i < n)
 	{
 		*(unsigned char *)dest++ = *(const unsigned char *)src++;
 		i++;
 	}
 	return (destt);
 }
-
-// #include <string.h>
-// #include <stdio.h>
-// int main(void)
-// {
-//     char buf1[] = "abcdef";
-//     char buf2[] = "abcdef";
-//     printf("memmove: %s\n", (char *)memmove(buf1, buf1 + 2, 4));
-//     printf("ft_memmove: %s\n", (char *)ft_memmove(buf2, buf2 + 2, 4));
-// }

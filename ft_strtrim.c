@@ -76,21 +76,18 @@ char	*ft_strtrim(const char *s1, const char *set)
 	if (!s1)
 		return (ft_strdup(""));
 	if (!set)
-		return (s1);
-	i = 0;
+		return (ft_strdup(s1));
 	start = ft_start(s1, set);
 	if (*start == '\0')
-		return (ft_null());
+		return (ft_strdup(""));
 	end = ft_end(s1, set);
 	len = ft_len(start, end);
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	while (i < len)
-	{
+	i = -1;
+	while (++i < len)
 		str[i] = start[i];
-		i++;
-	}
 	str[i] = '\0';
 	return ((char *)str);
 }

@@ -24,7 +24,7 @@ static void	ft_free(t_list *lst, void (*del)(void*))
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	if (!lst || !del)
-	return ;
+		return ;
 	ft_free(*lst, del);
 	*lst = (NULL);
 }

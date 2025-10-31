@@ -35,23 +35,3 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	}
 	return (destl + srcl);
 }
-/*
-#include <stdio.h>
-size_t ft_strlcat(char *dest, const char *src, size_t size);
-
-int main(void)
-{
-    char dest[20] = "Hello";
-    const char *src = " World!";
-    size_t size = 15;
-    size_t result;
-
-    printf("Before:\ndest = \"%s\"\nsrc = \"%s\"\n", dest, src);
-    
-    result = ft_strlcat(dest, src, size);
-    
-    printf("\nAfter ft_strlcat:\ndest = \"%s\"\n", dest);
-    printf("Return value: %zu\n", result);
-
-    return 0;
-} */
