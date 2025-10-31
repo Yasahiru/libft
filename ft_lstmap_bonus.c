@@ -15,7 +15,7 @@ static void	del_lst(t_list *node, void (*del)(void *))
 {
 	t_list	*next;
 
-	next = node->next;
+	next = node;
 	while (node)
 	{
 		del(node->content);
@@ -52,4 +52,32 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		next = (next->next);
 	}
 	return (head);
+}
+
+
+void* ft_toupper2(void* c) {
+    char *str = strdup((char*)c); 
+    return str;
+}
+
+int main(){
+	char* content1 = strdup("content1");
+	char* content2 = strdup("content2");
+	char* content3 = strdup("content3");
+
+	t_list *lst1 = ft_lstnew(content1);
+	t_list *lst2 = ft_lstnew(content2);
+	t_list *lst3 = ft_lstnew(content3);
+	lst1->next = lst2; 
+	lst2->next = lst3;
+	t_list *result = ft_lstmap(lst1, &ft_toupper2,&free);
+
+	t_list *next = lst1;
+	while (next){
+		printf("%s\n",(char*)next->content);
+		next = next->next;
+	}
+
+	del_lst(lst1, free);
+	del_lst(result, free);
 }
