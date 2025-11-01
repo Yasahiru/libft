@@ -14,7 +14,9 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <stdint.h>
 # include <limits.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
