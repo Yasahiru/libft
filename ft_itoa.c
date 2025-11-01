@@ -34,6 +34,8 @@ static char	*ft_min_int(void)
 	char	*min_int;
 
 	min_int = malloc(sizeof(char) * 12);
+	if (!min_int)
+		return (NULL);
 	min_int[0] = '-';
 	min_int[1] = '2';
 	min_int[2] = '1';
@@ -49,6 +51,13 @@ static char	*ft_min_int(void)
 	return (min_int);
 }
 
+static void	ft_neg(int *s, int *size, int *n)
+{
+	*s *= -1;
+	*size += 1;
+	*n *= -1;
+}
+
 char	*ft_itoa(int n)
 {
 	char	*str;
@@ -57,13 +66,12 @@ char	*ft_itoa(int n)
 	s = 1;
 	size = 0;
 	if (n <= -2147483648)
-		return (ft_min_int());
-	if (n < 0)
 	{
-		s *= -1;
-		size++;
-		n *= -1;
+		str = ft_min_int();
+		return (str);
 	}
+	if (n < 0)
+		ft_neg(&s, &size, &n);
 	size += ft_numlen(n);
 	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
